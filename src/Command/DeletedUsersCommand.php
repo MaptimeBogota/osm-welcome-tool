@@ -3,8 +3,6 @@
 namespace App\Command;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Psr\Cache\CacheItemInterface;
-use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,14 +17,12 @@ use Symfony\Component\Stopwatch\Stopwatch;
 )]
 class DeletedUsersCommand extends Command
 {
-    final public const CACHE_KEY = 'users_deleted';
     private const CHUNK = 500;
 
     public function __construct(
         private readonly Stopwatch $stopwatch,
         private readonly EntityManagerInterface $entityManager,
         private readonly Filesystem $filesystem,
-        private readonly CacheItemPoolInterface $cache,
     ) {
         parent::__construct();
     }
@@ -37,9 +33,17 @@ class DeletedUsersCommand extends Command
 
         $path = $this->download($io);
 
-        $usersDeletedCache = $this->updateCache($io, $path);
+        $list = [];
 
-        $this->delete($io, $usersDeletedCache->get());
+        $resource = @fopen($path, 'r');
+        if (false !== $resource) {
+            while (($line = fgets($resource, 512)) !== false) {
+                $list[] = (int) trim($line);
+            }
+            fclose($resource);
+        }
+
+        $this->delete($io, $list);
 
         $this->clean($io, $path);
 
@@ -114,36 +118,6 @@ class DeletedUsersCommand extends Command
     }
 
     /**
-     * Update cache.
-     */
-    private function updateCache(SymfonyStyle $io, string $path): CacheItemInterface
-    {
-        $this->stopwatch->start('update-cache');
-
-        $usersDeletedCache = $this->cache->getItem(self::CACHE_KEY);
-
-        $list = [];
-
-        $resource = @fopen($path, 'r');
-        if (false !== $resource) {
-            while (($line = fgets($resource, 512)) !== false) {
-                $list[] = (int) trim($line);
-            }
-            fclose($resource);
-        }
-
-        $usersDeletedCache->set($list);
-
-        $this->cache->save($usersDeletedCache);
-
-        $io->note(sprintf('%d deleted users', \count($list)));
-
-        $this->stopwatch->stop('update-cache');
-
-        return $usersDeletedCache;
-    }
-
-    /**
      * Remove deleted users from `mapper` and `user` tables.
      *
      * @param int[] $usersDeleted
@@ -202,7 +176,6 @@ class DeletedUsersCommand extends Command
     {
         $perf = [
             ['Download', round($this->stopwatch->getEvent('download')->getDuration()), round($this->stopwatch->getEvent('download')->getMemory() / 1024 / 1024, 1)],
-            ['Update cache', round($this->stopwatch->getEvent('update-cache')->getDuration()), round($this->stopwatch->getEvent('update-cache')->getMemory() / 1024 / 1024, 1)],
             ['Delete', round($this->stopwatch->getEvent('delete')->getDuration()), round($this->stopwatch->getEvent('delete')->getMemory() / 1024 / 1024, 1)],
             ['Clean-up', round($this->stopwatch->getEvent('clean')->getDuration()), round($this->stopwatch->getEvent('clean')->getMemory() / 1024 / 1024, 1)],
         ];

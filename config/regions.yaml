@@ -24,6 +24,10 @@ regions:
       name: Nigeria
       flag: 🇳🇬
       osmcha.id: c9a55728-9619-422b-abb0-e0fd55e0a780
+    south-africa:
+      name: South Africa
+      flag: 🇿🇦
+      osmcha.id: 5d310fee-75ab-4191-b58e-7689760ad2c2
     tanzania:
       name: Tanzania
       flag: 🇹🇿

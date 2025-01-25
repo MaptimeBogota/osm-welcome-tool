@@ -76,6 +76,10 @@ crons:
         spec: '0 1 * * *'
         commands:
             start: php bin/console osmcha:new-mapper nigeria
+    update-africa-south-africa:
+        spec: '0 1 * * *'
+        commands:
+            start: php bin/console osmcha:new-mapper south-africa
     update-africa-tanzania:
         spec: '0 22 * * *'
         commands:

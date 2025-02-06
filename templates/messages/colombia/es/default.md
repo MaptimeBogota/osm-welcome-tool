@@ -34,7 +34,17 @@ Si tienes dudas o preguntas como:
 
 * La comunidad de OpenStreetMap en Colombia tiene un [canal de Telegram](https://telegram.me/osmco), donde puedes hacer preguntas o conocer sobre las actividades que realizan. Es un espacio donde los miembros discuten aspectos importantes alrededor del mapa.
 
-* Si tienes una pregunta más complicada, puedes publicarla en [el centro de preguntas y respuestas de OSM](https://help.openstreetmap.org).
+* Si tienes una pregunta más complicada, puedes publicarla en [el foro de OSM](https://community.openstreetmap.org).
+
+También usamos varias redes sociales, para que puedas interactuar con la comunidad, y también te enteres de los próximos eventos, hitos alcanzados o cualquier elemento relativo a OSM en Colombia. Estas son las redes sociales que usamos para que nos sigas y nos ayudes a difundir el proyecto:
+
+* [X Twitter](https://twitter.com/OSM_Colombia).
+* [Instagram](https://www.instagram.com/osm_colombia/).
+* [Mastodon](https://en.osm.town/@OSM_Colombia).
+* [TikTok](https://www.tiktok.com/@osm_colombia).
+* [Facebook](https://www.facebook.com/groups/OsmCol/).
+* [LinkedIn](https://www.linkedin.com/groups/13038204/).
+* [YouTube](https://www.youtube.com/@OSM_Colombia).
 
 También usamos varias redes sociales, para que puedas interactuar con la comunidad, y también te enteres de los próximos eventos, hitos alcanzados o cualquier elemento relativo a OSM en Colombia. Estas son las redes sociales que usamos para que nos sigas y nos ayudes a difundir el proyecto:
 

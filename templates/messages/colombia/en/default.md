@@ -35,7 +35,17 @@ I think I might have broken something, or you’re in doubt how to map something
 * The OpenStreetMap Colombian community has a [Telegram channel](https://telegram.me/osmco) where you can ask anything or to know the activities that they do.
 This is an space where members discuss about different things about the map.
 
-* For more complicated questions you can search in or post on the [Help-site](https://help.openstreetmap.org).
+* For more complicated questions you can search in or post on the [forum](https://community.openstreetmap.org).
+
+We also use several social networks, so you can interact with the community, and also find out about upcoming events, milestones reached or anything related to OSM in Colombia. These are the social networks we use for you to follow us and help us spread the word about the project:
+
+* [X Twitter](https://twitter.com/OSM_Colombia).
+* [Instagram](https://www.instagram.com/osm_colombia/).
+* [Mastodon](https://en.osm.town/@OSM_Colombia).
+* [TikTok](https://www.tiktok.com/@osm_colombia).
+* [Facebook](https://www.facebook.com/groups/OsmCol/).
+* [LinkedIn](https://www.linkedin.com/groups/13038204/).
+* [YouTube](https://www.youtube.com/@OSM_Colombia).
 
 We also use several social networks, so you can interact with the community, and also find out about upcoming events, milestones reached or anything related to OSM in Colombia. These are the social networks we use for you to follow us and help us spread the word about the project:
 
